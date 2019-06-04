@@ -5,9 +5,10 @@ import android.view.LayoutInflater.from
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoexample.models.ToDoListItem
 import kotlinx.android.synthetic.main.todo_list_item.view.*
 
-class ToDoAdapter(val items: ArrayList<String>, val context: Context) :
+class ToDoAdapter(val items: ArrayList<ToDoListItem>, val context: Context) :
     RecyclerView.Adapter<ViewHolder>() {
 
     //Täyttää näkymät
@@ -22,10 +23,10 @@ class ToDoAdapter(val items: ArrayList<String>, val context: Context) :
 
     //Bindaa jokaisen eläimen AllayListasta omaan näkymään
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txtAnimal.text = items[position]
+        holder.txtTitle.text = items.get(position).title
     }
 }
 
 class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val txtAnimal = v.txt_animal
+    val txtTitle = v.txt_title
 }
