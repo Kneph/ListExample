@@ -1,19 +1,18 @@
 package com.example.listexapmle
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val animals: ArrayList<String> = ArrayList()
+    val todoItems: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,21 +24,24 @@ class MainActivity : AppCompatActivity() {
         rv_animal_list.layoutManager = LinearLayoutManager(this)
         //rv_animal_list.layoutManager = GridLayoutManager(this, 2)
 
-        rv_animal_list.adapter = AnimalAdapter(animals, this)
+        rv_animal_list.adapter = AnimalAdapter(todoItems, this)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+            val intent = Intent(this, AddItemActivity::class.java)
+            startActivity(intent)
         }
     }
-    fun addAnimals(){
-        animals.add("cat")
-        animals.add("dog")
-        animals.add("parrot")
-        animals.add("owl")
-        animals.add("bird")
-        animals.add("raccoon")
-        animals.add("snake")
+
+    fun addAnimals() {
+        todoItems.add("cat")
+        todoItems.add("dog")
+        todoItems.add("parrot")
+        todoItems.add("owl")
+        todoItems.add("bird")
+        todoItems.add("raccoon")
+        todoItems.add("snake")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
