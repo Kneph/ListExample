@@ -1,4 +1,4 @@
-package com.example.listexapmle
+package com.example.todoexample
 
 import android.content.Intent
 import android.os.Bundle
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         rv_animal_list.layoutManager = LinearLayoutManager(this)
         //rv_animal_list.layoutManager = GridLayoutManager(this, 2)
 
-        rv_animal_list.adapter = AnimalAdapter(todoItems, this)
+        rv_animal_list.adapter = ToDoAdapter(todoItems, this)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

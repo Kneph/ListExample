@@ -1,4 +1,4 @@
-package com.example.listexapmle
+package com.example.todoexample
 
 import android.content.Context
 import android.view.LayoutInflater.from
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.animal_list_item.view.*
 
-class AnimalAdapter(val items: ArrayList<String>, val context: Context) :
+class ToDoAdapter(val items: ArrayList<String>, val context: Context) :
     RecyclerView.Adapter<ViewHolder>() {
 
     //Täyttää näkymät
@@ -25,6 +25,7 @@ class AnimalAdapter(val items: ArrayList<String>, val context: Context) :
         holder.txtAnimal.text = items[position]
     }
 }
+
 class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val txtAnimal = v.txt_animal
 }

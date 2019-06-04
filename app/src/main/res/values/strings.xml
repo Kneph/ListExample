@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ListExapmle</string>
+    <string name="app_name">TodoExample</string>
     <string name="action_settings">Settings</string>
 </resources>
