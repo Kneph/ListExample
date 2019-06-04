@@ -5,14 +5,14 @@ import android.view.LayoutInflater.from
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.animal_list_item.view.*
+import kotlinx.android.synthetic.main.todo_list_item.view.*
 
 class ToDoAdapter(val items: ArrayList<String>, val context: Context) :
     RecyclerView.Adapter<ViewHolder>() {
 
     //Täyttää näkymät
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(from(context).inflate(R.layout.animal_list_item, parent, false))
+        return ViewHolder(from(context).inflate(R.layout.todo_list_item, parent, false))
     }
 
     //Palauttaa eläinten määrän
