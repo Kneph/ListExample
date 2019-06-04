@@ -58,26 +58,25 @@
                     app:layout_constraintTop_toBottomOf="@id/txt_body"/>
 
             <TextView
-                    android:id="@+id/txt_date"
+                    android:id="@+id/txt_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/deadline"
+                    android:text="@string/image_url"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/etxt_body"/>
 
             <EditText
-                    android:id="@+id/etxt_date"
+                    android:id="@+id/etxt_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/date"
-                    android:inputType="date"
+                    android:hint="@string/add_image_url"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_date"/>
+                    app:layout_constraintTop_toBottomOf="@id/txt_img"/>
 
             <Button
                     android:id="@+id/bt_save"
@@ -88,7 +87,8 @@
                     android:text="@string/save"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etxt_date"/>
+                    app:layout_constraintTop_toBottomOf="@id/etxt_img"
+                    android:onClick="addItem"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
