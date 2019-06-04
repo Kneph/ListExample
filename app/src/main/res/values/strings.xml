@@ -6,4 +6,6 @@
     <string name="deadline">Deadline</string>
     <string name="date">Date</string>
     <string name="save">Save</string>
+    <string name="image_url">Image URL</string>
+    <string name="add_image_url">URL</string>
 </resources>

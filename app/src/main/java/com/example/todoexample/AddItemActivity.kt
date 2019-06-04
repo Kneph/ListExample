@@ -1,6 +1,7 @@
 package com.example.listexapmle
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todoexample.R
 import com.example.todoexample.models.ToDoListItem
@@ -16,15 +17,15 @@ class AddItemActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_item)
     }
 
-    fun addItem() {
+    fun addItem(v: View) {
         // Get the current max id in the TodoListItem table
         var maxId = realm.where(ToDoListItem::class.java).max("id")
 
         // If there are no rows, currentId is null, so the next id must be 1
         // If currentId is not null, increment it by 1
-        val nextId = if (maxId == null) 1 else maxId!!.toInt() + 1
+        val nextId = if (maxId == null) 1 else maxId.toInt() + 1
 
-        var todoItem = ToDoListItem(nextId, etxt_title.text.toString(), etxt_body.text.toString())
+        var todoItem = ToDoListItem(nextId, etxt_title.text.toString(), etxt_body.text.toString(), "")
         try {
             realm.beginTransaction()
             realm.copyToRealmOrUpdate(todoItem)
@@ -34,6 +35,7 @@ class AddItemActivity : AppCompatActivity() {
             println(e)
 
         }
+        finish()
     }
 
 }
