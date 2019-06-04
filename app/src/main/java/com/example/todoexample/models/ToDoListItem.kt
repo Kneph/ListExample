@@ -1,4 +1,4 @@
-package com.example.listexapmle.models
+package com.example.todoexample.models
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
