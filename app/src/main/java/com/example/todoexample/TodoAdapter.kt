@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoexample.models.ToDoListItem
 import kotlinx.android.synthetic.main.todo_list_item.view.*
 
-class ToDoAdapter(val items: ArrayList<ToDoListItem>, val context: Context) :
+class ToDoAdapter(val items: MutableList<ToDoListItem>, val context: Context) :
     RecyclerView.Adapter<ViewHolder>() {
 
     //Täyttää näkymät

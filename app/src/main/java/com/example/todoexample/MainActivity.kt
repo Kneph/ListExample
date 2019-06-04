@@ -17,12 +17,14 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val todoItems: ArrayList<ToDoListItem> = ArrayList()
+    private lateinit var todoItems: MutableList<ToDoListItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        getItemsFromRealm(Realm.getDefaultInstance())
 
         addTodoItems()
 
@@ -44,6 +46,11 @@ class MainActivity : AppCompatActivity() {
     fun addTodoItems() {
         val toDoListItem = ToDoListItem(0, "Learn Android", "Go to class and behave", "https://www.sccpre.cat/png/big/96/960388_android-png-transparent.png")
         todoItems.add(toDoListItem)
+    }
+
+    fun getItemsFromRealm(realm: Realm){
+        var realmResults = realm.where(ToDoListItem::class.java).findAll()
+        todoItems = realm.copyFromRealm(realmResults)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
