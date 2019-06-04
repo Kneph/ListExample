@@ -28,5 +28,5 @@ class ToDoAdapter(val items: ArrayList<ToDoListItem>, val context: Context) :
 }
 
 class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val txtTitle = v.txt_title
+    val txtTitle = v.header
 }

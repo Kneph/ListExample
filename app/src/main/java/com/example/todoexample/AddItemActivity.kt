@@ -38,5 +38,3 @@ class AddItemActivity : AppCompatActivity() {
 
 }
 
-
-}
