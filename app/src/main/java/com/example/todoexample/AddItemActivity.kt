@@ -1,8 +1,12 @@
 package com.example.listexapmle
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todoexample.MainActivity
 import com.example.todoexample.R
 import com.example.todoexample.models.ToDoListItem
 import io.realm.Realm
@@ -30,12 +34,16 @@ class AddItemActivity : AppCompatActivity() {
             realm.beginTransaction()
             realm.copyToRealmOrUpdate(todoItem)
             realm.commitTransaction()
+            val intent = Intent(this, MainActivity::class.java)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
 
         } catch (e: Exception) {
             println(e)
-
+            Toast.makeText(this, "Something went wrong with adding", Toast.LENGTH_LONG).show()
+            finish()
         }
-        finish()
+
     }
 
 }

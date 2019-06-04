@@ -1,5 +1,6 @@
 package com.example.todoexample
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.content_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var todoItems: MutableList<ToDoListItem>
+    val ADD_NEW_TODO = 2019
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +37,22 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, ADD_NEW_TODO)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == ADD_NEW_TODO) {
+            if (resultCode == Activity.RESULT_OK) {
+                getItemsFromRealm(Realm.getDefaultInstance())
+                rv_list.adapter = ToDoAdapter(todoItems, this)
+
+            }
         }
     }
 
     fun getItemsFromRealm(realm: Realm){
-        var realmResults = realm.where(ToDoListItem::class.java).findAll()
+        val realmResults = realm.where(ToDoListItem::class.java).findAll()
         todoItems = realm.copyFromRealm(realmResults)
     }
 
