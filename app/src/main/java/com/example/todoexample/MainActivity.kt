@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         getItemsFromRealm(Realm.getDefaultInstance())
-
-        addTodoItems()
-
+        
         rv_list.layoutManager = LinearLayoutManager(this)
         //rv_animal_list.layoutManager = GridLayoutManager(this, 2)
 
@@ -35,17 +33,10 @@ class MainActivity : AppCompatActivity() {
 
         setRecyclerViewItemTouchListener()
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    fun addTodoItems() {
-        val toDoListItem = ToDoListItem(0, "Learn Android", "Go to class and behave", "https://www.sccpre.cat/png/big/96/960388_android-png-transparent.png")
-        todoItems.add(toDoListItem)
     }
 
     fun getItemsFromRealm(realm: Realm){
