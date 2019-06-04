@@ -17,15 +17,15 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val todoItems: ArrayList<ToDoListItem> = ArrayList()
+    private lateinit var todoItems: MutableList<ToDoListItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        addTodoItems()
-
+        getItemsFromRealm(Realm.getDefaultInstance())
+        
         rv_list.layoutManager = LinearLayoutManager(this)
         //rv_animal_list.layoutManager = GridLayoutManager(this, 2)
 
@@ -33,17 +33,15 @@ class MainActivity : AppCompatActivity() {
 
         setRecyclerViewItemTouchListener()
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
         }
     }
 
-    fun addTodoItems() {
-        val toDoListItem = ToDoListItem(0, "Learn Android", "Go to class and behave", "https://www.sccpre.cat/png/big/96/960388_android-png-transparent.png")
-        todoItems.add(toDoListItem)
+    fun getItemsFromRealm(realm: Realm){
+        var realmResults = realm.where(ToDoListItem::class.java).findAll()
+        todoItems = realm.copyFromRealm(realmResults)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
