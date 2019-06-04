@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        addAnimals()
+        addTodoItems()
 
         rv_animal_list.layoutManager = LinearLayoutManager(this)
         //rv_animal_list.layoutManager = GridLayoutManager(this, 2)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun addAnimals() {
+    fun addTodoItems() {
         todoItems.add("cat")
         todoItems.add("dog")
         todoItems.add("parrot")
