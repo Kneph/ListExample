@@ -10,9 +10,9 @@
         tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_animal_list"
+            android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/animal_list_item"/>
+            tools:listitem="@layout/todo_list_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
