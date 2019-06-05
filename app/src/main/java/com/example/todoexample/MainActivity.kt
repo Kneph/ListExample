@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -27,8 +26,6 @@ class MainActivity : AppCompatActivity() {
         rv_animal_list.adapter = ToDoAdapter(todoItems, this)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
             val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
         }
@@ -41,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         todoItems.add("owl")
         todoItems.add("bird")
         todoItems.add("raccoon")
-        todoItems.add("snake")
+        todoItems.add(snake)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
